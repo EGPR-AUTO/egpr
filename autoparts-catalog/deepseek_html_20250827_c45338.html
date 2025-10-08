@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EGPR Auto Parts</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, #1a2a6c, #2b5876);
+      color: white;
+      padding: 15px 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .logo {
+      height: 120px;
+      width: auto;
+      background: none;
+      border: none;
+      box-shadow: none;
+      transition: transform 0.5s ease-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .logo-main {
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+    
+    .logo-sub {
+      font-size: 10px;
+      font-weight: 500;
+      margin-top: 2px;
+      letter-spacing: 0.5px;
+    }
+    
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .brand-name {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    .brand-tagline {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-top: 2px;
+    }
+    
+    header nav {
+      display: flex;
+      gap: 25px;
+    }
+    
+    header nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 18px;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    
+    header nav a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    /* Banner Section */
+    .banner {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232b5876"/><circle cx="30" cy="30" r="5" fill="%23ffffff33"/><circle cx="60" cy="40" r="8" fill="%23ffffff33"/><circle cx="70" cy="70" r="6" fill="%23ffffff33"/><circle cx="40" cy="60" r="4" fill="%23ffffff33"/></svg>');
+      background-size: cover;
+      color: white;
+      padding: 5rem 2rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .banner h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .banner p {
+      font-size: 1.3rem;
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    
+    .albania-flag {
+      display: inline-block;
+      margin: 15px 0;
+      padding: 5px 15px;
+      background: linear-gradient(to right, #e41b23, #e41b23 33%, #000 33%, #000 66%, #e41b23 66%);
+      color: white;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    
+    .features h2 {
+      font-size: 2.5rem;
+      color: #1a2a6c;
+      margin-bottom: 3rem;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .feature-card {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .feature-card i {
+      font-size: 3rem;
+      color: #e63946;
+      margin-bottom: 20px;
+    }
+    
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #1a2a6c;
+    }
+    
+    .feature-card p {
+      color: #666;
+    }
+    
+    /* Partners Section */
+    .partners {
+      padding: 3rem 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      margin: 30px auto;
+    }
+    
+    .partners h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #1a2a6c;
+      font-size: 2.2rem;
+    }
+    
+    .partners-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    
+    .partner-item {
+      text-align: center;
+      flex: 0 0 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .partner-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    .partner-logo {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      background: white;
+      padding: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .partner-logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .partner-name {
+      font-weight: 700;
+      color: #1a2a6c;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .partner-description {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #1a2a6c, #2b5876);
+      color: white;
+      padding: 3rem 0 1.5rem;
+      margin-top: 50px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+    
+    .footer-section h3 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-section h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: #e63946;
+    }
+    
+    .footer-section p {
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+    
+    .footer-section a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+    
+    .footer-section a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      background: #e63946;
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      header nav {
+        gap: 10px;
+      }
+      
+      .banner h2 {
+        font-size: 2.2rem;
+      }
+      
+      .banner p {
+        font-size: 1.1rem;
+      }
+      
+      .brand-name {
+        font-size: 28px;
+      }
+      
+      .logo {
+        height: 100px;
+      }
+      
+      .logo-main {
+        font-size: 22px;
+      }
+      
+      .partners-grid {
+        gap: 30px;
+      }
+      
+      .partner-item {
+        flex: 0 0 180px;
+      }
+      
+      .partner-logo {
+        width: 120px;
+        height: 120px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      header nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .banner {
+        padding: 3rem 1rem;
+      }
+      
+      .banner h2 {
+        font-size: 1.8rem;
+      }
+      
+      .banner p {
+        font-size: 1rem;
+      }
+      
+      .logo {
+        height: 90px;
+      }
+      
+      .logo-main {
+        font-size: 20px;
+      }
+      
+      .logo-sub {
+        font-size: 8px;
+      }
+      
+      .partners-grid {
+        gap: 20px;
+      }
+      
+      .partner-item {
+        flex: 0 0 140px;
+        padding: 15px;
+      }
+      
+      .partner-logo {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .partner-name {
+        font-size: 1rem;
+      }
+      
+      .partner-description {
+        font-size: 0.85rem;
+      }
+    }
+  
+    .logo img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+</style>
+</head>
+<body>
+<!-- Header Section -->
+<header>
+<div class="container">
+<div class="header-content">
+<div class="logo-container">
+<div class="logo" id="spin-logo"><img alt="EGPR Logo" src="images/logo/Adobe Express - file.png"/></div>
+<div class="brand-text">
+<h1 class="brand-name">EGPR AUTO PARTS</h1>
+<span class="brand-tagline">Quality Parts Since 1991</span>
+</div>
+</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="catalog.html">Catalog</a>
+<a href="contact.html">Contact</a>
+</nav>
+</div>
+</div>
+</header>
+<!-- Banner Section -->
+<section class="banner">
+<div class="container">
+<h2>Your Trusted Auto Parts Supplier</h2>
+<p>Founded in 1991 in Tirana, Albania, EGPR holds the distinction of being the country's first auto parts supplier. For over three decades, we have built a respectable reputation by providing high-quality automotive parts with exceptional customer service and competitive prices.</p>
+<div class="albania-flag">Proudly Albanian Owned &amp; Operated</div>
+<p>Our commitment to excellence and deep understanding of the automotive industry has made us the preferred choice for professionals and DIY enthusiasts throughout Albania and beyond.</p>
+</div>
+</section>
+<!-- Features Section -->
+<section class="features">
+<div class="container">
+<h2>Why Choose EGPR?</h2>
+<div class="features-grid">
+<div class="feature-card">
+<i class="fas fa-check-circle"></i>
+<h3>Quality Assurance</h3>
+<p>All our parts meet or exceed OEM specifications, ensuring reliability and performance you can trust.</p>
+</div>
+<div class="feature-card">
+<i class="fas fa-shipping-fast"></i>
+<h3>Fast Shipping</h3>
+<p>We understand downtime costs you money. Most orders ship within 24 hours of placement.</p>
+</div>
+<div class="feature-card">
+<i class="fas fa-headset"></i>
+<h3>Expert Support</h3>
+<p>Our team of automotive experts is ready to help you find the right parts for your needs.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Partners Section -->
+<section class="container">
+<div class="partners">
+<h3>Our Trusted Partners</h3>
+<div class="partners-grid">
+<div class="partner-item">
+<a href="https://www.azmt.de/" target="_blank" rel="noopener noreferrer">
+  <img src="images/partners/az_meisterteile_logo.png" alt="A.Z Meisterteile Logo" class="partner-logo">
+</a>
+<div class="partner-name">A.Z Meisterteile</div>
+<div class="partner-description">German manufacturer specializing in high-quality engine components and spare parts for European vehicles.</div>
+</div>
+<div class="partner-item">
+<a href="https://www.metalcaucho.com/" target="_blank" rel="noopener noreferrer">
+  <img src="images/partners/metalcaucho_logo.png" alt="Metalcaucho Logo" class="partner-logo">
+</a>
+<div class="partner-name">Metalcaucho</div>
+<div class="partner-description">Spanish company renowned for its rubber and metal components, especially engine mounts and suspension parts.</div>
+</div>
+<div class="partner-item">
+<a href="https://www.tecneco.it/" target="_blank" rel="noopener noreferrer">
+  <img src="images/partners/tecneco_logo.png" alt="Tecneco Logo" class="partner-logo">
+</a>
+<div class="partner-name">Tecneco</div>
+<div class="partner-description">Italian producer of high-performance exhaust systems and emission control components.</div>
+</div>
+<div class="partner-item">
+<a href="https://www.mecarm.it/" target="_blank" rel="noopener noreferrer">
+  <img src="images/partners/mecarm_logo.png" alt="MecArm Logo" class="partner-logo">
+</a>
+<div class="partner-name">MecArm</div>
+<div class="partner-description">Italian manufacturer with over 50 years of experience producing high-quality clutches for all vehicle brands.</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer>
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>About EGPR</h3>
+<p>Providing quality auto parts to professionals and DIY enthusiasts since 1991. Our commitment to excellence has made us a trusted name in the industry.</p>
+</div>
+<div class="footer-section">
+<h3>Contact Info</h3>
+<p><i class="fas fa-map-marker-alt"></i> Rruga Xhanfize Keko, Tirana, Albania</p>
+<p><i class="fas fa-phone"></i> +355 0682030387</p>
+<p><i class="fas fa-phone"></i> +355 0696870152</p>
+<p><i class="fas fa-envelope"></i> egprricambialbania@gmail.com</p>
+</div>
+<div class="footer-section">
+<h3>Quick Links</h3>
+<p><a href="index.html">Home</a></p>
+<p><a href="catalog.html">Product Catalog</a></p>
+<p><a href="contact.html">Contact Us</a></p>
+<div class="social-icons">
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="https://www.instagram.com/egpr.auto/" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+</div>
+</div>
+</div>
+<div class="copyright">
+<p>© 2025 EGPR Auto Parts. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+    // Logo spinning effect on scroll
+    const logo = document.getElementById('spin-logo');
+    let rotation = 0;
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const scrollDelta = scrollY - lastScrollY;
+      
+      // Increase rotation based on scroll delta
+      rotation += scrollDelta * 0.3;
+      
+      // Apply rotation to logo
+      logo.style.transform = `rotate(${rotation}deg)`;
+      
+      lastScrollY = scrollY;
+    });
+
+    // Simple JavaScript for interactive elements
+    document.addEventListener('DOMContentLoaded', function() {
+      // Highlight current page in navigation
+      const currentPage = window.location.pathname.split('/').pop();
+      const navLinks = document.querySelectorAll('nav a');
+      
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+          link.style.background = 'rgba(255, 255, 255, 0.2)';
+          link.style.fontWeight = '600';
+        }
+      });
+      
+      // Add animation to feature cards on scroll
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+      
+      document.querySelectorAll('.feature-card, .partner-item').forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+      });
+    });
+  </script>
+</body>
+</html>
